@@ -1,0 +1,26 @@
+<!-- Add task popup dialog -->
+<div class="popup-dialog">
+  <div class="popup-header">
+    <h3>Add todo task</h3>
+    <i id="close-icon" class="fa-solid fa-xmark fa-lg"></i>
+  </div>
+  <div class="popup-form">
+    <form method="POST" action="{% url 'add_task' %}">
+      {% csrf_token %}
+      <label for="duration">Duration</label>
+      <input type="datetime-local" name="duration" required>
+      <label for="title">Task</label>
+      <input type="text" name="title" required>
+      <label for="description">Task description</label>
+      <textarea type="text" name="description"></textarea>
+      <button type="submit">Save</button>
+      <button id="close-btn" type="button">Cancel</button>
+    </form>
+  </div>
+</div>
+<!-- Removal task popup dialog -->
+<div class="popup-dialog removal-task">
+  <h3>Are you sure you want to delete this task?</h3>
+  <button type="submit" onclick="deleteTask()">Confirm</button>
+  <button id="close-btn" type="button" onclick="cancelDeleteTask()">Cancel</button>
+</div>

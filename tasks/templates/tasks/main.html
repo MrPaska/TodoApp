@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="main">
+  {% include 'alert_dialog.html' %}
+  <div id="popup" class="popup-wrapper">
+    {% include 'popup_dialogs.html' %}
+  </div>
+  {% include 'navbar.html' %}
+  <div class="content">
+    {% include 'sidebar.html' %}
+    <div class="tasks">
+      {% if tasks %}
+      {% for task in tasks %}
+      <div class="task-box">
+        <div class="mark-task">
+          {% if task.complete == True %}
+            <input type="checkbox" checked>
+          {% else %}
+            <input type="checkbox">
+          {% endif %}
+          <span></span>
+        </div>
+        <div class="task-info">
+          <p><samll><b>Task: </b></samll>{{task}}</p>
+          <p><small><b>Duration: </b>{{task.duration}}</small></p>
+        </div>
+        <div class="task-icons">
+          <a id="update_task"><input id="task-id" value="{{task.id}}"><i class="fa-regular fa-pen-to-square fa-xl"></i></a>
+          <a onclick="deleteDialog('{{task.id}}')"><i class="fa-solid fa-trash fa-xl"></i></a>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <p class="no-content">Nėra įrašų</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

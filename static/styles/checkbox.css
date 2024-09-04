@@ -1,0 +1,47 @@
+/* Custom CheckBox */
+[type="checkbox"]{
+  position: relative;
+  z-index: 999999;
+  opacity: 0;
+  cursor: pointer;
+  transform: scale(1.7);
+}
+
+[type="checkbox"] + span{
+  position: relative;
+}
+
+[type="checkbox"] + span::before{
+  content: "";
+  position: absolute;
+  left: -16px;
+  width: 20px;
+  height: 20px;
+  outline: 2px solid #000;
+  background: #ffffffee;
+}
+
+[type="checkbox"]:checked + span::after{
+  content: "";
+  position: absolute;
+  left: -16px;
+  width: 20px;
+  height: 20px;
+  background-image: url('../images/check.png');
+  background-size: contain;
+  transform: scale(1);
+  opacity: 1;
+  transition: all .2s ease;
+}
+
+[type="checkbox"]:not(:checked) + span::after{
+  content: "";
+  position: absolute;
+  left: -16px;
+  width: 20px;
+  height: 20px;
+  background-image: url('../images/check.png');
+  background-size: contain;
+  transform: scale(0);
+  opacity: 0;
+}

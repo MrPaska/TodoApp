@@ -1,0 +1,12 @@
+{% for message in messages %}
+<div class="alert-dialog {{message.tags}}">
+  <p>{{ message }}</p>
+</div>
+<script>
+  const alert_dialog = document.querySelector('.alert-dialog')
+  alert_dialog.style.display = "block";
+  setTimeout(() => {
+    alert_dialog.style.display = "none";
+  }, 3000);
+</script>
+{% endfor %}
