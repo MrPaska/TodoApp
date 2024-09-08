@@ -1,4 +1,4 @@
-# To-do Web App
+# To-do Web App using Python Django framework
 - **Description:**
 a simple To-do web application designed to help end-users manage their daily tasks efficiently.
 The app allows users to create, read, update and detele (CRUD) their tasks, as well as mark them as completed, making it easier to keep things of track.
